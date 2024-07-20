@@ -31,11 +31,5 @@ public class ThirdPersonCamera : MonoBehaviour
         // Optional: Smoothly follow the player rotation
         float horizontal = Input.GetAxis("Mouse X") * rotationSpeed;
         float vertical = Input.GetAxis("Mouse Y") * rotationSpeed;
-
-        if (Input.GetMouseButton(1)) // Right mouse button for rotating
-        {
-            currentRotation *= Quaternion.Euler(-vertical, horizontal, 0);
-            transform.rotation = currentRotation;
-        }
     }
 }
