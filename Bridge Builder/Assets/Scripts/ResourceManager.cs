@@ -1,22 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ResourceManager : MonoBehaviour
 {
-    public Text coinsText;
-    int coins = 0;
+    public static ResourceManager instance;
 
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI coinsText;
+    private int coins;
+
+    private void Awake()
     {
-        coinsText.text = "Coins " + coins.ToString();
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            LoadCoins();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+        UpdateCoinsText();
+    }
 
+    public void AddCoins(int num)
+    {
+        coins += num;
+        SaveCoins();
+        UpdateCoinsText();
+    }
+
+    private void UpdateCoinsText()
+    {
+        if (coinsText != null)
+        {
+            coinsText.text = "Coins: " + coins.ToString();
+        }
+    }
+
+    private void SaveCoins()
+    {
+        PlayerPrefs.SetInt("PlayerCoins", coins);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadCoins()
+    {
+        if (PlayerPrefs.HasKey("PlayerCoins"))
+        {
+            coins = PlayerPrefs.GetInt("PlayerCoins");
+        }
+        else
+        {
+            coins = 0; // Default value if no coins are saved
+        }
     }
 }
