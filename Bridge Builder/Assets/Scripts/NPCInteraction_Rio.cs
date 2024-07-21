@@ -5,17 +5,14 @@ public class NPCInteraction_Rio : MonoBehaviour
 {
     public GameObject interactionPromptUI;
     private bool isPlayerNearby = false;
-    private const string InteractionKey = "NPCInteraction_Rio"; // Key for PlayerPrefs
+    private const string InteractionKey = "NPCInteraction_Rio";
 
     private void Start()
     {
-        // Ensure UI elements are initially hidden
         interactionPromptUI.SetActive(false);
 
-        // Check PlayerPrefs to determine if the player has interacted before
         if (PlayerPrefs.GetInt(InteractionKey, 0) == 1)
         {
-            // Player has interacted before; prevent further interactions
             interactionPromptUI.SetActive(false);
         }
     }
@@ -43,8 +40,8 @@ public class NPCInteraction_Rio : MonoBehaviour
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.F) && !HasInteractedBefore())
         {
             interactionPromptUI.SetActive(false);
-            PlayerPrefs.SetInt(InteractionKey, 1); // Set PlayerPrefs to indicate interaction
-            PlayerPrefs.Save(); // Save changes
+            PlayerPrefs.SetInt(InteractionKey, 1);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Dialogue_Rio");
         }
     }

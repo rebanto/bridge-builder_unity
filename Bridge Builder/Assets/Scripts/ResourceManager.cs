@@ -56,7 +56,7 @@ public class ResourceManager : MonoBehaviour
         }
         else
         {
-            coins = 0; // Default value if no coins are saved
+            coins = 0;
         }
     }
 }

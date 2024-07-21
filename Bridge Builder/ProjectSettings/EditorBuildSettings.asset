@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 6641bffbfe4ece046b01772b9c245592
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 8b21a1e2155bea3428260a7235b6afa2
+  - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Scene2.unity
+    guid: 2b49a3db2402b44648e95c5c13b47ab6
   - enabled: 1
     path: Assets/Scenes/Dialogues/Dialogue_Rio.unity
     guid: 77ea4945e42f63940b194e63fe8c9e17
